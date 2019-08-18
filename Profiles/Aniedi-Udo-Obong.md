@@ -1,6 +1,6 @@
 # Aniedi Udo-Obong
 
-Aniedi Udo-Obong better known as the Nigerian google Person is the [Google's]("https://www.google.com/") Program Manager, Developer Ecosystem for Sub-Saharan Africa since resuming this role in February 2016.
+Aniedi Udo-Obong better known as the Nigerian google Person is the [Google's](https://www.google.com/) Program Manager, Developer Ecosystem for Sub-Saharan Africa since resuming this role in February 2016.
 
 <img src="./assets/aniedi.png">
 
