@@ -20,8 +20,9 @@ Aniedo has had a wide array of experiences and through his role at google he has
 His industry knowledge also includes Project Management, Start-ups, Cloud Computing, Strategy, Mobile Devices, Management Consulting, Business Analysis, Business Development, Program Management, Telecommunications, Web Development, Product Development, Open source, Team Leadership and Networking.
 
 Social Contacts:
-LinkedIn: [https://www.linkedin.com/in/aniediudo/]("https://www.linkedin.com/in/aniediudo/"),
 
-Twitter: [https://twitter.com/aniediudo]("https://twitter.com/aniediudo"),
+LinkedIn: [https://www.linkedin.com/in/aniediudo/](https://www.linkedin.com/in/aniediudo/),
 
-Website: [https://about.me/aniediudo]("https://about.me/aniediudo")
+Twitter: [https://twitter.com/aniediudo](https://twitter.com/aniediudo),
+
+Website: [https://about.me/aniediudo](https://about.me/aniediudo)
