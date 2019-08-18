@@ -28,4 +28,4 @@ He speaks five(5) languages viz: English, French, Hausa, Mupun, and Yoruba. He h
 
 In December 2018, he was honoured and awarded as "The Best Young Information Communication Technologist (ICT)" in the Ten Outstanding Young Persons (TOYPS) Award of Excellence on the Plateau.
 
-You can find him on linkedIn [https://www.linkedin.com/in/daser/]("https://www.linkedin.com/in/daser/").
+You can find him on linkedIn [https://www.linkedin.com/in/daser/](https://www.linkedin.com/in/daser/).
