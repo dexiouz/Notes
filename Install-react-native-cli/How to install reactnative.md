@@ -79,7 +79,6 @@ the next thing is to
 - enable USB debugging on your phone, and
 - connect your phone to your PC, then run 
 
-And run the following
 ```
 $ react-native run-android
 ```
