@@ -90,7 +90,7 @@ After running
 ```
 $ react-native run-android
 ```
-
+The final thing is to run 
 ```
 $ yarn start
 ```
