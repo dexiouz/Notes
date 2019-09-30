@@ -2,7 +2,10 @@
 
 To install react native on linux you must have node and npm installed.
 
-This how-to assumes you already have the Android SDK installed.
+This "tutorial" assumes you already have the Android SDK installed.
+
+Let's start:
+
 ## Update your PC
 ```
 $ sudo apt update
