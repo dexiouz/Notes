@@ -1,5 +1,4 @@
-# Coercion in Javascript
-
+# Coercion in javascript
 Have you ever been intrigued by the result of these javascript questions, that 
 
 ```js
@@ -12,6 +11,7 @@ Have you ever been intrigued by the result of these javascript questions, that
 
 Well, I was both intrigued and shocked. That is why I delved in to find out what's happening there. In this article I will share my findings with you and you will be able to see how we came about those answers.
 
+## Data Types and typeof
 There are seven data types in javascript namely: `null, undefined, boolean, string,number,object and symbol`. 
   
 The `typeof` operator is used to determine the data type of a javascript operand. In the expression 1 + 2, both 1 and 2 are `operands`. The `typeof` returns a string like so:
@@ -63,8 +63,6 @@ let info = 'The student is' + age 'years old' // The student is 13 years old;
 ```
 
 All the data types(null, undefined, boolean, string,number and symbol) are called `primitives` except the `object` data type which is called `non-primitive`.
-
-
 ## Primitive coercion
 The behaviour of coercion for primitives and non-primitives is quite different. Primitives can be coerced or changed to either Number, String or Boolean.
 ### Coerce primitives to Number
@@ -138,7 +136,7 @@ typeof Object.prototype.valueOf() // "function"
 typeof Object.prototype.toString() // "function"
 ```
 
-Now let's check the `valueOf() and toString()` of an object.
+Now let's check the `valueOf()` and `toString()` of an object.
 ```js
 let myObj = {}
 myObj.valueOf() // {}
@@ -150,12 +148,12 @@ To change an object to number or string, the javascript engine will first perfor
 1. It will either call valueOf() or toString() on the object based on the object's DefaultValue internal method. Some say it is based on the "hint" passed.  If a number is the hint, valueOf is called else if a string is the hint, valueOf is called. In most cases, valueOf is called first.
 2. The next thing is to check if the returned value in (1) is a primitive. If it is a primitive, then return the primitive else continue to (3).
 3. Call the next or fallback method. This can be either toString() or valueOf(). That is, if valueOf() was called in (1) above, the next or fallback method becomes toString(), same way, if toString() was called in (1), the fallback method becomes valueOf().
-4. Perform (1) using the fallback method. If the returned value is a primitive, return it else, it throws an error, "`TypeError: Cannot convert object to primitive`".
+4. Perform (1) again using the fallback method. If the returned value is a primitive, return it else, it throws an error, "`TypeError: Cannot convert object to primitive`".
 
 Recall our last example above where we checked valueOf and toString() of an object. Using the results there let's look at some examples
-```js
-// Example 1
 
+**Example 1**
+```js
 let myObj = {}
 2 + myObj
 ```
@@ -182,8 +180,8 @@ Recall `operator overboarding`?, if any of the operands is a string, it evaluate
 ```
 Let us look at another example
 
+**Example 2**
 ```js
-// Example 2
 [] + 5
 ```
  _The unary operator (+) performs string concatenation or numeric addition based on arguement type_. 
@@ -208,15 +206,12 @@ It evaluates to an empty string which is a primitive so we have
 "" + 5 //becomes
 "" + "5" // "5"
 ```
-Our final solution becomes after evaluating two strings
+Our final solution is what we have below after evaluating two strings
 ```js
-"5" //hence
 [] + 5 // "5"
 ```
-
-Another example
+**Example 3**
 ```js
-// Example 3
 [] + {}
 ```
 
@@ -238,12 +233,11 @@ Now we have string primitives like so
 Evaluating two primitives finally gives us
 ```js
 "[object object]"
-````
+```
 Therefore
 ```js
 [] + {} //"[object object]"
 ```
-Fourth example
 
 **Example 4**
 ```js
