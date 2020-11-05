@@ -1,12 +1,12 @@
 # Coercion in javascript
-Have you ever been intrigued by the result of these javascript questions, that 
+Have you ever been intrigued by the result of these javascript questions? that 
 
 ```js
-- [] + [] = ""
-- [] + {} = "[object Object]"
-- {} + {} = NaN
-- {} + [] = 0
-- [] + 5  = "5"
+[] + [] = ""
+[] + {} = "[object Object]"
+{} + {} = NaN
+{} + [] = 0
+[] + 5  = "5"
 ```
 
 Well, I was both intrigued and shocked. That is why I delved in to find out what's happening there. In this article I will share my findings with you and you will be able to see how we came about those answers.
@@ -29,6 +29,8 @@ typeof null      ===> 'object'
 typeof []                 // 'object'
 typeof function func(){}.  // 'function'
 ```
+
+
 Notice that `null` is the only data type which is falsy and returns an 'object' from `typeof` check.
 
 And that `typeof` function and array returns 'function' and 'object'. The reason is that `functions` and `array` are subtypes of the object type. 
@@ -106,6 +108,7 @@ true && "hello"
 = true && true
 = true
 ```
+For a more detailed explanation on primitive coercion, checkout this article I wrote specifically for [Coercing primitives in javascript](https://hashnode.com/post/coercing-primitives-in-javascript-ckh4q0phi05mz39s16ptvhgl8)
 
 ## Non - Primitive coercion (Object coercion)
 We have seen how primitive coercion is done. In this section we will do same for non-primitives. Recall that we said earlier that the object data type is called non-primitive and that the `typeof` of for functions and arrays will always resolve to "function" and "object" respectively because functions and arrays are _subtypes_ of object.
