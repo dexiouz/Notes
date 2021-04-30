@@ -1,0 +1,230 @@
+# How to Set up React Native on MacOs
+
+So you have a new MacOS and now you want to set up [React Native](https://reactnative.dev/) on your new machine. This guide will walk you through with a straight to the point approach. No gimmicks. 
+
+To make this as straight forward as possible, I'll include links for further reading on any concept, stack, tech etc.
+
+We'll divide our set up into three
+- General( For all platforms both iOS and Android)
+- iOS Specific and
+- Android Specific
+
+## General
+## [Homebrew](https://brew.sh)
+The first thing is to ensure you have [Homebrew](https://brew.sh/) installed by typing:
+```sh
+ $ brew --version
+```
+if you get ```zsh: command not found: brew```, then it means you don't have it installed.
+
+Install Homebrew with:
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+It will prompt for sudo password(your mac/laptop password), enter it to proceed.
+
+Then you should see this too
+```sh
+...
+==> The Xcode Command Line Tools will be installed.
+
+Press RETURN to continue or any other key to abort
+```
+Just press enter and continue
+
+After installation, check your brew version by typing 
+```sh
+$ brew --version
+```
+A succesful installation should output
+
+```sh
+$ Homebrew 3.1.3
+Homebrew/homebrew-core (git revision 036b0409ce; last commit 2021-04-27)
+```
+
+## [Node](https://nodejs.org/en/)
+Next we have to install [node](https://nodejs.org/en/). 
+I prefer to install node via nvm(node version manager). With nvm, I can install and use any version of node at anytime.:
+
+### Install nvm
+Run this on the terminal
+```sh
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+```
+
+Once completed, close your terminal, reopen it and type:
+```
+$ nvm ls
+```
+
+If you get this error
+```
+....
+ Profile not found. Tried ~/.bashrc, ~/.bash_profile, ~/.zshrc, and ~/.profile.
+...
+```
+
+Then do this
+```
+$ touch ~/.bash_profile  
+```
+Again, close your terminal, reopen it and type:
+```
+$ nvm ls
+```
+
+If you get the error
+```
+zsh: command nvm not found
+```
+
+Then type this:
+```
+$ source ~/.nvm/nvm.sh 
+```
+This should fix it.
+
+Running this again
+```
+nvm ls
+```
+should now output something like this
+
+```sh
+            N/A
+iojs -> N/A (default)
+node -> stable (-> N/A) (default)
+unstable -> N/A (default)
+nvm_list_aliases:36: no matches found: /Users/chidera/.nvm/alias/lts/*
+```
+This shows it has been installed successfully
+
+### Install node via nvm 
+To see a list of  installable node versions, type this
+```
+nvm ls-remote
+```
+
+which should output
+```
+...
+       v14.16.1   (Latest LTS: Fermium)
+        v15.0.0
+        v15.0.1
+        v15.1.0
+...
+```
+At the time of this writing, `v14.16.1 is the Latest stable version` so we install it
+
+```
+$ nvm install 14.16.1
+```
+Once completed, we use it like so:
+```
+nvm use 14.16.1
+```
+
+Let's confirm the node version installed 
+```
+node --version
+```
+which outputs
+```
+14.16.1
+```
+Since npm comes with node, we also check it's installed version
+```
+npm --version
+```
+which outputs
+```
+6.14.12
+```
+
+## [Watchman](https://facebook.github.io/watchman/)
+Watchman is to watch specific folders or files, and if they are changed, it can trigger some actions.
+
+Install watchman
+```
+brew update
+brew install watchman
+```
+After installation, confirm watchman by
+```
+$ watchman --version
+```
+
+## iOS
+### [XCode](https://developer.apple.com/xcode/)
+Install the 11GB+ XCode via the [Mac App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12). When the page opens, click on "View in Mac App Store" or click on "Open App Store" in the ensuing pop up.
+Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app.
+
+
+### Configure Command Line Tools
+To configure command line tools after installation of xcode, execute/open xcode, then from the xcode menu at the top left corner of your Mac, click on the `Xcode -> Preferences`. Once inside, you'll see a list of tab arranged menu, click "Locations". 
+
+Once inside Locations, you'll see `Command Line Tools`, click on the input there and select the most recent, mine was `Xcode 12.5 (12E262)`. Input your password when prompted.
+
+### [Install Cocoapods]( https://cocoapods.org/)
+
+Cocoapods is the dependency manager on iOS development.
+Install it with 
+```
+$ sudo gem install cocoapods
+```
+
+
+After installation, check your pod version
+```
+$ pod --version
+```
+
+
+
+## React Native Command Line Interface
+Rather than install and manage a specific version of React Native CLI globally, it's recommended to access the current version at runtime using `npx`.
+
+Let's create a new React Native project. First `cd` into any Directory of your choice. I'll use Desktop
+```
+$ cd Desktop
+```
+Then run the following
+```
+$ npx react-native init newProject
+```
+```
+$ npx pod-install
+```
+```
+$ yarn ios
+```
+
+<!--  -->
+## Android
+### [Install JDK]()
+Install Java Development Kit (JDK) using Homebrew. Run the following commands in a Terminal after installing Homebrew:
+```
+$ brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
+```
+After installation, run this for confirmation
+```
+$ java -version
+```
+This should output
+```
+openjdk version "1.8.0_292"
+OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_292-b10)
+OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.292-b10, mixed mode)
+```
+
+Java compiler comes installed with JDK, confirm this by
+```
+$ javac --version
+``` 
+Which shows 
+```
+javac 1.8.0_292
+```
+
+### [Android Studio]()

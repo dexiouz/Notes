@@ -1,0 +1,1 @@
+[this](https://stackoverflow.com/questions/30065227/run-open-vscode-from-mac-terminal#:~:text=Open%20Visual%20Studio%20Code%20and,Now%20open%20your%20terminal%20type.&text=Open%20Visual%20Studio%20Code%20and,Now%20open%20your%20terminal%20type.)
