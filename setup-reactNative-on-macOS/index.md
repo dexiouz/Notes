@@ -10,13 +10,17 @@ We'll divide our set up into three
 
 ## General
 ## [Homebrew](https://brew.sh)
-The first thing is to ensure you have [Homebrew](https://brew.sh/) installed by typing:
+The first thing is to ensure you have [Homebrew](https://brew.sh/) installed by typing in your terminal:
 ```sh
  $ brew --version
 ```
-if you get ```zsh: command not found: brew```, then it means you don't have it installed.
+if you get 
+```
+zsh: command not found: brew
+```
+ then it means you don't have it installed.
 
-Install Homebrew with:
+Hence, install Homebrew with:
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
@@ -46,10 +50,16 @@ Homebrew/homebrew-core (git revision 036b0409ce; last commit 2021-04-27)
 Next we have to install [node](https://nodejs.org/en/). 
 I prefer to install node via nvm(node version manager). With nvm, I can install and use any version of node at anytime.:
 
-### Install nvm
-Run this on the terminal
+## Install nvm
+
+Run this on the terminal if you're using bash
 ```sh
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+```
+
+Or this if you're using `zsh`
+```sh
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | zsh
 ```
 
 Once completed, close your terminal, reopen it and type:
@@ -132,7 +142,7 @@ which outputs
 ```
 14.16.1
 ```
-Since npm comes with node, we also check it's installed version
+Since npm comes with node, we also check  it's installed version
 ```
 npm --version
 ```
@@ -141,7 +151,7 @@ which outputs
 6.14.12
 ```
 
-### [Install Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
+## [Install Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
 This is not compulsory as you can use `npm` for the same purpose, however, I personally just like using yarn.
 
 ```
@@ -163,12 +173,18 @@ $ watchman --version
 
 ## iOS
 ### [XCode](https://developer.apple.com/xcode/)
-Install the mpre than 10GB+ XCode via the [Mac App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12). When the page opens, click on "View in Mac App Store" or click on "Open App Store" in the ensuing pop up.
+
+Install the more than 10GB+ XCode via the [Mac App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12). When the page opens, click on "View in Mac App Store" or click on "Open App Store" in the ensuing pop up.
 Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app.
 
 
+_Disclaimer_: At the time of this writing, I installed `xcode 12.5` and it was having issues, this made me downgrade to `xcode 12.4`. If you experience issues to wit, your ios project wouldn't build, please see if you can downgrade to `xcode 12.4`.
+
 ### Configure Command Line Tools
-To configure command line tools after installation of xcode, execute/open xcode, then from the xcode menu at the top left corner of your Mac, click on the `Xcode -> Preferences`. Once inside, you'll see a list of tab arranged menu, click "Locations". 
+To configure command line tools after installation of xcode, 
+- execute/open xcode, then 
+- from the xcode menu at the top left corner of your Mac, click on the `Xcode -> Preferences`. 
+- Once inside, you'll see a list of tab arranged menu, click on "Locations". 
 
 Once inside `Locations`, you'll see `Command Line Tools`, click on the input there and select the most recent, mine was `Xcode 12.5 (12E262)`. Input your password when prompted.
 
@@ -202,10 +218,11 @@ $ npx react-native init newProject
 ```
 $ npx pod-install
 ```
+Then finally
 ```
 $ yarn ios
 ```
-
+If everything goes well, your react native project should come up in the simulator
 <!--  -->
 ## Android
 ### [Install JDK]()
@@ -234,7 +251,7 @@ javac 1.8.0_292
 ```
 
 ### [Android Studio](https://developer.android.com/studio)
-Android Studio is used to develop Android Applications on Mac.
+[Android Studio](https://developer.android.com/studio) is used to develop Android Applications on Mac.
  Follow this [link](https://developer.android.com/studio) to download it.
 
  ### Configure Android Studio
