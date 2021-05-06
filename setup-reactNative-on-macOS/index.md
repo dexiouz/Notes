@@ -142,13 +142,20 @@ which outputs
 6.14.12
 ```
 
+### [Install Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
+This is not compulsory as you can use `npm` for the same purpose, however, I personally just like using yarn.
+
+```
+$ npm install --global yarn
+```
+
 ## [Watchman](https://facebook.github.io/watchman/)
 Watchman is to watch specific folders or files, and if they are changed, it can trigger some actions.
 
 Install watchman
 ```
-brew update
-brew install watchman
+$ brew update
+$ brew install watchman
 ```
 After installation, confirm watchman by
 ```
@@ -157,14 +164,14 @@ $ watchman --version
 
 ## iOS
 ### [XCode](https://developer.apple.com/xcode/)
-Install the 11GB+ XCode via the [Mac App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12). When the page opens, click on "View in Mac App Store" or click on "Open App Store" in the ensuing pop up.
+Install the mpre than 10GB+ XCode via the [Mac App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12). When the page opens, click on "View in Mac App Store" or click on "Open App Store" in the ensuing pop up.
 Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app.
 
 
 ### Configure Command Line Tools
 To configure command line tools after installation of xcode, execute/open xcode, then from the xcode menu at the top left corner of your Mac, click on the `Xcode -> Preferences`. Once inside, you'll see a list of tab arranged menu, click "Locations". 
 
-Once inside Locations, you'll see `Command Line Tools`, click on the input there and select the most recent, mine was `Xcode 12.5 (12E262)`. Input your password when prompted.
+Once inside `Locations`, you'll see `Command Line Tools`, click on the input there and select the most recent, mine was `Xcode 12.5 (12E262)`. Input your password when prompted.
 
 ### [Install Cocoapods]( https://cocoapods.org/)
 
@@ -180,7 +187,7 @@ After installation, check your pod version
 $ pod --version
 ```
 
-
+**That's it for iOS installation, let's confirm it's working.**
 
 ## React Native Command Line Interface
 Rather than install and manage a specific version of React Native CLI globally, it's recommended to access the current version at runtime using `npx`.
@@ -203,7 +210,7 @@ $ yarn ios
 <!--  -->
 ## Android
 ### [Install JDK]()
-Install Java Development Kit (JDK) using Homebrew. Run the following commands in a Terminal after installing Homebrew:
+Install Java Development Kit (JDK) using Homebrew with the following command:
 ```
 $ brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
 ```
@@ -227,4 +234,85 @@ Which shows
 javac 1.8.0_292
 ```
 
-### [Android Studio]()
+### [Android Studio](https://developer.android.com/studio)
+Android Studio is used to develop Android Applications on Mac.
+ Follow this [link](https://developer.android.com/studio) to download it.
+
+ ### Configure Android Studio
+After downloading, the next thing is to configure Android studio. 
+Double click the Android studio file in your downloads folder, after installation, you'll see a screen with the Android studio and Applicaations folder, drag the Android studio into the Applications folder.
+
+<img src="./assets/one.png" width="60%" >
+
+
+Now go to Applications and execute it.
+
+It opens with two options: 
+- Config or Installation folder
+- Do not import settings
+
+Select the "Do not import Settings" and click 
+Ok if you've not previously installed Android studio or do not intend to keep any previous settings
+
+<img src="./assets/two.png" width="60%" >
+
+This should bring you to the welcome page
+
+<img src="./assets/three.png" width="60%" >
+
+Click on next to go to the next page
+
+<img src="./assets/four.png" width="60%" >
+
+Select `Custom` and click `Next`
+
+<img src="./assets/five.png" width="60%" >
+
+In this new page where it sets the path, click next and select preferred theme in the next page. 
+I selected the Dracular dark theme
+
+<img src="./assets/six.png" width="60%" >
+
+The next screen is the Android SDK setup components screen.
+
+Ensure that `Performance (Intel ® HAXM)` option and `Android Virtual Device option` are selected then click Next button.
+
+<img src="./assets/seven.png" width="60%" >
+
+This takes you to the next screen, click Next without altering anything,
+
+<img src="./assets/eight.png" width="60%" >
+
+The final screen is this that shows the summary of the downloads it is about to make, click `Finish` to start the download
+
+<img src="./assets/nine.png" width="60%" >
+
+Once the download completes, click `Finish` on the next screen
+
+<img src="./assets/ten.png" width="60%" >
+
+### Android SDK Configurattion
+The next phase is now about SDK configuration. On the next screen, click on `Configure` on the right botton and select `SDK Manager` 
+
+<img src="./assets/eleven.png" width="60%" >
+
+_- The SDK Manager can also be found within the Android Studio "Preferences" dialog, under Appearance & Behavior → System Settings → Android SDK._
+
+On the next screen click on `Show Package Details` at the bottom right
+
+<img src="./assets/twelve.png" width="60%" >
+
+Then select the following, ensuring you're on the `SDK Platforms` tab: 
+
+- Android SDK Platform 29
+- Intel x86 Atom_64 System Image `or` Google APIs Intel x86 Atom System Image
+
+<img src="./assets/thirteen.png" width="60%" >
+
+Still on same screen, select `SDK Tools` tab and check the box next to `"Show Package Details"` here as well. Look for and expand the `"Android SDK Build-Tools"` entry, then make sure that `29.0.2` is selected and check the `"Android SDK Command-line Tools (latest)"`.
+
+<img src="./assets/fourteen.png" width="60%" ><img src="./assets/fifteen.png" width="60%" >
+
+Finally, click "Ok" then click "Ok" on the next summary page, also accept the "License Agreement terms and conditions" then click on "Next" to download and install the Android SDK and related build tools.
+
+
