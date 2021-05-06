@@ -1,8 +1,7 @@
-# How to Set up React Native on MacOs
+# How to Set up React Native on MacOS
 
 So you have a new MacOS and now you want to set up [React Native](https://reactnative.dev/) on your new machine. This guide will walk you through with a straight to the point approach. No gimmicks. 
 
-To make this as straight forward as possible, I'll include links for further reading on any concept, stack, tech etc.
 
 We'll divide our set up into three
 - General( For all platforms both iOS and Android)
@@ -315,4 +314,87 @@ Still on same screen, select `SDK Tools` tab and check the box next to `"Show Pa
 
 Finally, click "Ok" then click "Ok" on the next summary page, also accept the "License Agreement terms and conditions" then click on "Next" to download and install the Android SDK and related build tools.
 
+Once it's finished downloading and unzipping, click `Finish`
 
+
+###  Configure the ANDROID_HOME environment variable
+
+What we want to do is to open `$HOME/.bash_profile` or `$HOME/.bashrc` to add environmental variables. If you’re using `ZSH`, it should be `$HOME/.zshrc`.
+To open `$HOME/.bashrc` or `$HOME/.zshrc`, go to the terminal and type 
+```
+$ vim ~/.zshrc
+```  
+if you're using `bash` it should be 
+
+```
+$ vim ~/.bashrc
+```
+It should open this vim page
+
+```
+export NVM_DIR="/Users/chidera/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+~
+~
+~
+~    
+"~/.zshrc" 3L, 104B
+```
+
+From your keyboard, click `i` to edit `vim` and you should get this
+```
+export NVM_DIR="/Users/chidera/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+~
+~
+~
+~    
+-- INSERT --
+```
+
+Copy and paste this code inside there
+```
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+```
+And you should get this
+
+```
+export NVM_DIR="/Users/chidera/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+~
+~
+~
+~                                                                                    
+-- INSERT --
+```
+
+When you're done, press `esc` key, then press `:wq` + `Enter` to save your changes and that should be all.
+
+### Start React Native App
+Go to the where you initialised a React Native App and in it's terminal, run 
+```
+$ yarn android
+```
+Or 
+```
+$ react-native run-android
+```
+
+Give it sometime to build and if successful, you should get your emulator up and running
+
+<img src="./assets/eighteen.png" width="60%" >
+
+You can also run your project from ios simulator
+
+<img src="./assets/nineteen.png" width="60%" >
+
+Congratulations!!! You've succeeded in setting up React Native on your MacBook to run both iOS and Android OS.
