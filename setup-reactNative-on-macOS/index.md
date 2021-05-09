@@ -1,16 +1,20 @@
 # How to Set up React Native on MacOS
 
+If you need to develop an app for both iOS and Android, [React Native](https://reactnative.dev/) is the best tool out there.
+
 So you have a new MacOS and now you want to set up [React Native](https://reactnative.dev/) on your new machine. This guide will walk you through with a straight to the point approach. No gimmicks. 
 
 
 We'll divide our set up into three
-- General( For all platforms both iOS and Android)
-- iOS Specific and
-- Android Specific
+- [General](##General) (For all platforms both iOS and Android)
+- [iOS Specific and](##ios)
+- [Android Specific](##Android)
+
+> **P.S:** Ensure you have a strong network connection and alot of data haha
 
 ## General
 ## [Homebrew](https://brew.sh)
-The first thing is to ensure you have [Homebrew](https://brew.sh/) installed by typing in your terminal:
+The first thing is to ensure you have [Homebrew](https://brew.sh/) installed. Open your terminal and type this:
 ```sh
  $ brew --version
 ```
@@ -20,7 +24,7 @@ zsh: command not found: brew
 ```
  then it means you don't have it installed.
 
-Hence, install Homebrew with:
+Install Homebrew with:
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
@@ -48,18 +52,18 @@ Homebrew/homebrew-core (git revision 036b0409ce; last commit 2021-04-27)
 
 ## [Node](https://nodejs.org/en/)
 Next we have to install [node](https://nodejs.org/en/). 
-I prefer to install node via nvm(node version manager). With nvm, I can install and use any version of node at anytime.:
+I prefer to install node via [nvm(node version manager)](https://github.com/nvm-sh/nvm). With nvm, I can install and use any version of node at anytime.:
 
 ## Install nvm
 
-Run this on the terminal if you're using bash
-```sh
-$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-```
-
-Or this if you're using `zsh`
+Run this on the terminal 
 ```sh
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | zsh
+```
+
+Or this if you're using `bash`
+```sh
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 ```
 
 Once completed, close your terminal, reopen it and type:
@@ -178,7 +182,7 @@ Install the more than 10GB+ XCode via the [Mac App Store](https://apps.apple.com
 Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app.
 
 
-_Disclaimer_: At the time of this writing, I installed `xcode 12.5` and it was having issues, this made me downgrade to `xcode 12.4`. If you experience issues to wit, your ios project wouldn't build, please see if you can downgrade to `xcode 12.4`.
+_Disclaimer_: At the time of this writing, I installed `xcode 12.5` and it was having issues, this made me downgrade to `xcode 12.4`. If you experience issues to wit, your ios project wouldn't build, please see if you can downgrade to `xcode 12.4`. Or just proceed with downloading `xcode 12.4`. Follow this [link](https://xcodereleases.com) to get the required `12.4` version
 
 ### Configure Command Line Tools
 To configure command line tools after installation of xcode, 
@@ -186,8 +190,8 @@ To configure command line tools after installation of xcode,
 - from the xcode menu at the top left corner of your Mac, click on the `Xcode -> Preferences`. 
 - Once inside, you'll see a list of tab arranged menu, click on "Locations". 
 
-Once inside `Locations`, you'll see `Command Line Tools`, click on the input there and select the most recent, mine was `Xcode 12.5 (12E262)`. Input your password when prompted.
-
+Once inside `Locations`, you'll see `Command Line Tools`, click on the input there and select the most recent, mine was `Xcode 12.5 (12E262)`.  Input your password when prompted.
+> If you installed `xcode 12.4`, you should see `Xcode 12.4 (...)`.
 ### [Install Cocoapods]( https://cocoapods.org/)
 
 Cocoapods is the dependency manager on iOS development.
@@ -222,6 +226,12 @@ Then finally
 ```
 $ yarn ios
 ```
+
+Or 
+
+```
+$ react-native run-ios
+```
 If everything goes well, your react native project should come up in the simulator
 <!--  -->
 ## Android
@@ -243,7 +253,7 @@ OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.292-b10, mixed mode)
 
 Java compiler comes installed with JDK, confirm this by
 ```
-$ javac --version
+$ javac -version
 ``` 
 Which shows 
 ```
@@ -336,8 +346,8 @@ Once it's finished downloading and unzipping, click `Finish`
 
 ###  Configure the ANDROID_HOME environment variable
 
-What we want to do is to open `$HOME/.bash_profile` or `$HOME/.bashrc` to add environmental variables. If you’re using `ZSH`, it should be `$HOME/.zshrc`.
-To open `$HOME/.bashrc` or `$HOME/.zshrc`, go to the terminal and type 
+What we want to do is to open `$HOME/.zshrc`to add environmental variables. If you’re using `bash`, it should be  `$HOME/.bash_profile` or `$HOME/.bashrc` .
+To open `$HOME/.zshrc` or `$HOME/.bashrc`, go to the terminal and type 
 ```
 $ vim ~/.zshrc
 ```  
@@ -346,7 +356,7 @@ if you're using `bash` it should be
 ```
 $ vim ~/.bashrc
 ```
-It should open this vim page
+this should open this vim page
 
 ```
 export NVM_DIR="/Users/chidera/.nvm"
@@ -397,7 +407,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 When you're done, press `esc` key, then press `:wq` + `Enter` to save your changes and that should be all.
 
 ### Start React Native App
-Go to the where you initialised a React Native App and in it's terminal, run 
+Go to where you initialised a React Native App and in it's terminal, run 
 ```
 $ yarn android
 ```
